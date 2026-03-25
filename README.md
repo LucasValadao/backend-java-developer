@@ -1,29 +1,25 @@
 # Avaliação Desenvolvedor Backend Java
 
-## Objetivo:
-Avaliar a capacidade do desenvolvedor em construir e evoluir uma API REST robusta, utilizando
-Java (versão estável mais recente), Spring Boot, banco de dados PostgreSQL, integrações externas,
-boas práticas de arquitetura, organização de código, segurança, Docker e documentação
+## 1 - Clonar o projeto
+```bash 
+git clone https://github.com/LucasValadao/backend-java-developer.git
+cd backend-java-developer
+```
 
-## Requisitos técnicos:
+## 2 - Buildar o container do Docker
+ ```bash 
+ docker compose up --build
+ ```
 
-- Java 25
-- Spring Boot
-- Docker
-- PostgreSQL 16.X
-- Flyway
-- Spring Security
-- Arquitetura em camadas
-- WebClient ou RestTemplate
-- Tratamento de erros padronizado
-- Documentação via SpringDoc (Swagger)
+## 3 - Acessar o Swagger no localhost para testar os endpoints criados.
+http://localhost:9012/swagger-ui/index.html
 
-## Estrutura disponibilizada
+## 4 - Em caso de erro ao montar o container, repetir o passo da montagem.
+```bash 
+docker compose down
+```
 
-- Camada de segurança parcialmente pronta
-- DTOs da API externa
-- User (controller, service, repository)
-- Flyway com tabelas user e show
-- Classe de paginação (Util.class)
+```bash 
+docker compose up --build
+```
 
-- Classe modelo para chamadas externas (AbstractRequest<T>.class)
