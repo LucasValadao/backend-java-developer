@@ -7,21 +7,29 @@ import com.cmanager.app.authentication.domain.mapper.ShowMapper;
 import com.cmanager.app.authentication.repository.EpisodeRepository;
 import com.cmanager.app.authentication.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class ShowService {
 
     private final ShowRepository showRepository;
     private final EpisodeRepository episodeRepository;
     private final RestTemplate restTemplate;
 
-    public void syncShow(String name) {
+    public ShowService(ShowRepository showRepository, EpisodeRepository episodeRepository, RestTemplate restTemplate) {
+        this.showRepository = showRepository;
+        this.episodeRepository = episodeRepository;
+        this.restTemplate = restTemplate;
+    }
+
+    public Show syncShow(String name) {
         String url = "https://api.tvmaze.com/singlesearch/shows?q="
                 + name + "&embed=episodes";
 
@@ -29,9 +37,11 @@ public class ShowService {
 
         Integer idIntegration = (Integer) response.get("id");
 
-        if (showRepository.existsByIdIntegration(idIntegration)) {
-            return;
+        Optional<Show> existing = showRepository.findByIdIntegration(idIntegration);
+        if (existing.isPresent()) {
+            return existing.get();
         }
+
         Show show = ShowMapper.mapToEntity(response);
 
         showRepository.save(show);
@@ -48,5 +58,15 @@ public class ShowService {
             Episode episode = EpisodeMapper.mapToEntity(ep, show);
             episodeRepository.save(episode);
         }
+
+        return show;
+    }
+
+    public Page<Show> listShows(String name, Pageable pageable) {
+        if (name != null && !name.isBlank()) {
+            return showRepository.findByNameContainingIgnoreCase(name, pageable);
+        }
+
+        return showRepository.findAll(pageable);
     }
 }
