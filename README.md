@@ -8,7 +8,8 @@ cd backend-java-developer
 
 ## 2 - Buildar o container do Docker
  ```bash 
- docker compose up --build
+ docker compose build --no-cache
+ docker compose up
  ```
 
 ## 3 - Acessar o Swagger no localhost para testar os endpoints criados.
