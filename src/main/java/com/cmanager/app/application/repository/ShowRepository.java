@@ -1,4 +1,4 @@
-package com.cmanager.app.authentication.repository;
+package com.cmanager.app.application.repository;
 
 import com.cmanager.app.application.domain.Show;
 import org.springframework.data.domain.Page;

@@ -1,12 +1,11 @@
-package com.cmanager.app.authentication.service;
+package com.cmanager.app.application.service;
 
 import com.cmanager.app.application.domain.Episode;
 import com.cmanager.app.application.domain.Show;
-import com.cmanager.app.authentication.domain.mapper.EpisodeMapper;
-import com.cmanager.app.authentication.domain.mapper.ShowMapper;
-import com.cmanager.app.authentication.repository.EpisodeRepository;
-import com.cmanager.app.authentication.repository.ShowRepository;
-import lombok.RequiredArgsConstructor;
+import com.cmanager.app.application.data.mapper.EpisodeMapper;
+import com.cmanager.app.application.data.mapper.ShowMapper;
+import com.cmanager.app.application.repository.EpisodeRepository;
+import com.cmanager.app.application.repository.ShowRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

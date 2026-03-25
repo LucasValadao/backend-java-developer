@@ -1,8 +1,7 @@
-package com.cmanager.app.authentication.service;
+package com.cmanager.app.application.service;
 
 import com.cmanager.app.application.data.EpisodeAverageDTO;
-import com.cmanager.app.authentication.repository.EpisodeRepository;
-import lombok.RequiredArgsConstructor;
+import com.cmanager.app.application.repository.EpisodeRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -27,7 +26,9 @@ public class EpisodeService {
         return result.stream()
                 .map(r -> new EpisodeAverageDTO(
                         (Integer) r[0],
-                        (BigDecimal) r[1]
+                        r[1] != null
+                                ? new BigDecimal(r[1].toString())
+                                : BigDecimal.ZERO
                 ))
                 .toList();
     }

@@ -1,28 +1,16 @@
-package com.cmanager.app.authentication.controller;
+package com.cmanager.app.application.controller;
 
 import com.cmanager.app.application.data.ShowDTO;
 import com.cmanager.app.application.domain.Show;
-import com.cmanager.app.authentication.data.UserCreateRequest;
-import com.cmanager.app.authentication.data.UserDTO;
-import com.cmanager.app.authentication.data.UserUpdateRequest;
-import com.cmanager.app.authentication.service.ShowService;
-import com.cmanager.app.authentication.service.UserService;
+import com.cmanager.app.application.service.ShowService;
 import com.cmanager.app.core.data.PageResultResponse;
 import com.cmanager.app.core.utils.Util;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
 
 @RestController
 @RequestMapping("/api/shows")

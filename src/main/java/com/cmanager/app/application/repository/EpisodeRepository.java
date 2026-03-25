@@ -1,4 +1,4 @@
-package com.cmanager.app.authentication.repository;
+package com.cmanager.app.application.repository;
 
 import com.cmanager.app.application.domain.Episode;
 import org.springframework.data.jpa.repository.JpaRepository;

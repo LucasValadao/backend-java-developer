@@ -1,7 +1,7 @@
-package com.cmanager.app.authentication.controller;
+package com.cmanager.app.application.controller;
 
 import com.cmanager.app.application.data.EpisodeAverageDTO;
-import com.cmanager.app.authentication.service.EpisodeService;
+import com.cmanager.app.application.service.EpisodeService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

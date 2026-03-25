@@ -1,4 +1,4 @@
-package com.cmanager.app.authentication.domain.mapper;
+package com.cmanager.app.application.data.mapper;
 
 import com.cmanager.app.application.domain.Show;
 
